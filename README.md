@@ -1,5 +1,5 @@
 # ECE271a-Statistical-Learning-I
-HW1
+HW1:
 This is the first in a series of computer problems where we will get a feel for the difficulty of practical pattern recognition problems, such as computer vision. 
 The goal is to segment the “cheetah” image (shown below in the left) into its two components, cheetah (foreground) and grass (background).
 
@@ -10,3 +10,12 @@ a) using the training data in TrainingSamplesDCT 8.mat, what are reasonable esti
 b) using the training data in TrainingSamplesDCT 8.mat, compute and plot the index histograms PX|Y (x|cheetah) and PX|Y (x|grass).
 c) for each block in the image cheetah.bmp, compute the feature X (index of the DCT coefficient with 2nd greatest energy). Compute the state variable Y using the minimum probability of error rule based on the probabilities obtained in a) and b). Store the state in an array A. Using the commands imagesc and colormap(gray(255)) create a picture of that array.
 d) The array A contains a mask that indicates which blocks contain grass and which contain the cheetah. Compare it with the ground truth provided in image cheetah mask.bmp (shown below on the right) and compute the probability of error of your algorithm.
+
+HW2: Once again we use the decomposition into 8 × 8 image blocks, compute the DCT of each block, and zig-zag scan. However, we are going to assume that the class-conditional densities are multivariate Gaussians of 64 dimensions.
+Note: The training examples we used last time contained the absolute value of the DCT coefficients instead of the coefficients themselves. Please download the file TrainingSamplesDCT 8 new.mat and use it in this and all future exercises. For simplicity, I will still refer to it as TrainingSamplesDCT 8.mat.
+
+a) Using the training data in TrainingSamplesDCT 8.mat compute the histogram estimate of the prior PY (i), i ∈ {cheetah, grass}. Using the results of problem 2 compute the maximum likelihood estimate for the prior probabilities. Compare the result with the estimates that you obtained last week. If they are the same, interpret what you did last week. If they are different, explain the differences.
+
+b) Using the training data in TrainingSamplesDCT 8.mat, compute the maximum likelihood estimates for the parameters of the class conditional densities PX|Y (x|cheetah) and PX|Y (x|grass) under the Gaussian assumption. Denoting by X = {X1, . . . , X64} the vector of DCT coefficients, create 64 plots with the marginal densities for the two classes - PXk |Y (xk |cheetah) and PXk |Y (xk |grass), k = 1, . . . , 64 - on each. Use different line styles for each marginal. Select, by visual inspection, what you think are the best 8 features for classification purposes and what you think are the worst 8 features (you can use the subplot command to compare several plots at a time). Hand in the plots of the marginal densities for the best-8 and worst-8 features (once again you can use subplot, this should not require more than two sheets of paper). In each subplot indicate the feature that it refers to.
+
+c) Compute the Bayesian decision rule and classify the locations of the cheetah image using i) the 64-dimensional Gaussians, and ii) the 8-dimensional Gaussians associated with the best 8 features. For the two cases, plot the classification masks and compute the probability of error by comparing with cheetah mask.bmp. Can you explain the results?
