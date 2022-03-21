@@ -1,4 +1,4 @@
-%%%%HW5
+%%%%EM
 % a)
 trainsample = load('TrainingSamplesDCT_8_new.mat');
 zigzag = load('Zig-Zag Pattern.txt');
