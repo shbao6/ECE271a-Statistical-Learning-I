@@ -1,4 +1,4 @@
-%%%% Q5
+%%%% Segment Cheetah image into foreground and background
 % a)
 % The priors PY (cheetah) 
 p_c = 250/(1035+250) % 0.1946
