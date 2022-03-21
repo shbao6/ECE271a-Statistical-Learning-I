@@ -1,4 +1,4 @@
-%%%%HW2
+%%%% Multivariate Gaussian
 % a)
 trainsample = load('TrainingSamplesDCT_8_new.mat');
 zigzag = load('Zig-Zag Pattern.txt');
