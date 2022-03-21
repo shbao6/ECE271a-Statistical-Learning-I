@@ -1,6 +1,6 @@
 # ECE271a-Statistical-Learning-I
 
-The goal is to segment the “cheetah” image (shown below in the left) into its two components, cheetah (foreground) and grass (background).
+**The goal is to segment the “cheetah” image (shown below in the left) into its two components, cheetah (foreground) and grass (background).
 
 To formulate this as a pattern recognition problem, I need to decide on an observation space. Here I used the space of 8 × 8 image blocks, i.e. I view each image as a collection of 8 × 8 blocks. For each block I compute the discrete cosine transform (function dct2 on MATLAB) and obtain an array of 8 × 8 frequency coefficients. 
 
@@ -11,8 +11,8 @@ There are two matrices, TrainsampleDCT BG and TrainsampleDCT FG for foreground a
 To make the task of estimating the class conditional densities easier, I reduced each vector to a scalar. For each vector, I compute the index (position within the vector) of the coefficient that has the 2nd largest energy value (absolute value). This is my observation or feature X. By building an histogram of these indexes I obtained the class-conditionals for the two classes PX|Y (x|cheetah) and PX|Y (x|grass). The priors PY (cheetah) and PY (grass) should also be estimated from the training set.
 
 Applying the Bayesian Decision Rule, in ImageProcessing file, I followed these steps to make classifications:
-1) using the training data in TrainingSamplesDCT 8.mat, estimate the reasonable prior probabilities.
-2) using the training data in TrainingSamplesDCT 8.mat, compute and plot the index histograms PX|Y (x|cheetah) and PX|Y (x|grass).
+1) using the training data in **TrainingSamplesDCT 8.mat**, estimate the reasonable prior probabilities.
+2) using the training data in **TrainingSamplesDCT 8.mat**, compute and plot the index histograms PX|Y (x|cheetah) and PX|Y (x|grass).
 3) for each block in the image cheetah.bmp, compute the feature X (index of the DCT coefficient with 2nd greatest energy). Compute the state variable Y using the minimum probability of error rule based on the probabilities obtained in a) and b). Store the state in an array A. Using the commands imagesc and colormap(gray(255)) create a picture of that array.
 4) The array A contains a mask that indicates which blocks contain grass and which contain the cheetah. Finally, I compare it with the ground truth provided in image cheetah mask.bmp (shown below on the right) and compute the probability of error of the algorithm.
 
