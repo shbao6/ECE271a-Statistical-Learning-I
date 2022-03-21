@@ -1,6 +1,6 @@
 # ECE271a-Statistical-Learning-I
 
-**The goal is to segment the “cheetah” image (shown below in the left) into its two components, cheetah (foreground) and grass (background).
+**The goal is to segment the “cheetah” image (shown below in the left) into its two components, cheetah (foreground) and grass (background).**
 
 To formulate this as a pattern recognition problem, I need to decide on an observation space. Here I used the space of 8 × 8 image blocks, i.e. I view each image as a collection of 8 × 8 blocks. For each block I compute the discrete cosine transform (function dct2 on MATLAB) and obtain an array of 8 × 8 frequency coefficients. 
 
