@@ -8,7 +8,7 @@ I then convert each 8 × 8 array into a 64 dimensional vector because it is easi
 
 There are two matrices, TrainsampleDCT BG and TrainsampleDCT FG for foreground and background samples respectively.
 
-To make the task of estimating the class conditional densities easier, I reduced each vector to a scalar. For each vector, I compute the index (position within the vector) of the coefficient that has the 2nd largest energy value (absolute value). This is my observation or feature X. By building an histogram of these indexes I obtained the class-conditionals for the two classes PX|Y (x|cheetah) and PX|Y (x|grass). The priors PY (cheetah) and PY (grass) should also be estimated from the training set.
+To make the task of estimating the class conditional densities easier, I reduce each vector to a scalar. For each vector, I compute the index (position within the vector) of the coefficient that has the 2nd largest energy value (absolute value). This is my observation or feature X. By building an histogram of these indexes I obtain the class-conditionals for the two classes PX|Y (x|cheetah) and PX|Y (x|grass). The priors PY (cheetah) and PY (grass) should also be estimated from the training set.
 
 Applying the Bayesian Decision Rule, in ImageProcessing file, I follow these steps to make classifications:
 1) using the training data in **TrainingSamplesDCT 8.mat**, estimate the reasonable prior probabilities.
